@@ -5,46 +5,178 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Beethoven Quantum Machine</title>
     <style>
-        body { font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; max-width: 900px; margin: 0 auto; padding: 2rem; text-align: center; }
-        .container { background: #f0f8ff; border-radius: 16px; padding: 2rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        .download-btn { display: inline-block; background: #0066cc; color: white; font-size: 1.2rem; font-weight: bold; padding: 12px 24px; border-radius: 8px; text-decoration: none; margin: 1rem 0; transition: background 0.2s; }
-        .download-btn:hover { background: #004c99; }
-        code { background: ; padding: 0.2rem 0.4rem; border-radius: 5px; }
-        pre { background: #1e1e2f; color: #fff; padding: 1rem; border-radius: 8px; text-align: left; overflow-x: auto; }
-        hr { margin: 2rem 0; } /* Add some spacing */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            background: #eef2f5;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 28px;
+            padding: 2rem 2rem 2.5rem;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.02);
+            transition: all 0.2s;
+        }
+        h1 {
+            font-size: 2.2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+            color: #0a2540;
+        }
+        .subhead {
+            text-align: center;
+            color: #2c3e66;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 1rem;
+        }
+        .download-area {
+            text-align: center;
+            margin: 2rem 0 1rem;
+        }
+        .download-btn {
+            display: inline-block;
+            background: #0066cc;
+            color: white;
+            font-size: 1.3rem;
+            font-weight: bold;
+            padding: 14px 32px;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 8px rgba(0,102,204,0.2);
+            border: none;
+            cursor: pointer;
+        }
+        .download-btn:hover {
+            background: #004c99;
+            transform: scale(1.01);
+        }
+        .info-note {
+            background: #f9fafb;
+            border-left: 5px solid #0066cc;
+            padding: 1rem 1.2rem;
+            margin: 1.5rem 0;
+            border-radius: 16px;
+            font-size: 0.9rem;
+            color: #1e293b;
+            text-align: left;
+        }
+        h2 {
+            margin: 1.8rem 0 1rem 0;
+            font-size: 1.6rem;
+            color: #0f172a;
+            border-left: 4px solid #0066cc;
+            padding-left: 1rem;
+        }
+        pre {
+            background: #1e1e2f;
+            color: #f1f5f9;
+            padding: 1rem;
+            border-radius: 14px;
+            overflow-x: auto;
+            font-size: 0.9rem;
+            margin: 1rem 0;
+        }
+        code {
+            font-family: 'Fira Code', monospace;
+        }
+        hr {
+            margin: 2rem 0;
+            border: none;
+            border-top: 1px solid #e2e8f0;
+        }
+        .badge {
+            display: inline-block;
+            background: #e6f0ff;
+            color: #0066cc;
+            border-radius: 30px;
+            padding: 0.2rem 0.8rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        footer {
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.8rem;
+            color: #5b6e8c;
+        }
+        @media (max-width: 640px) {
+            .container { padding: 1.5rem; }
+            h1 { font-size: 1.7rem; }
+            .download-btn { font-size: 1.1rem; padding: 12px 24px; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>🎵 Beethoven Quantum Machine</h1>
-        <p>Эмулятор 8-кубитного квантового компьютера с консольным интерфейсом, вентилями X, H, Z, CNOT, поддержкой шумов и собственным установщиком для Windows.</p>
-
-        <!-- Это и есть основная работающая кнопка! -->
-      <a href="https://github.com/pavelaknyazev2013-jpg/BeethovenQuantumMachine/releases/tag/v1.5" 
-   class="download-btn" 
-   target="_blank">
-   ⬇️ Скачать для Windows (страница релиза)
-</a>
-        
-        <p style="font-size: 0.8rem; color: #555;">Если скачивание не началось автоматически, нажмите правой кнопкой мыши на ссылку и выберите "Сохранить ссылку как...".</p>
-        
-        <hr>
-        <h2>📋 Быстрая справка</h2>
-        <pre><code>
-h    — вентиль Адамара: создаёт суперпозицию
-x    — вентиль NOT: переворачивает кубит
-z    — вентиль Паули Z: меняет фазу |1⟩ на -|1⟩
-cnot — управляемое NOT (запутывание)
-measure   — измерить все 8 кубитов
-reset     — сбросить состояние
-cls       — очистить экран консоли
-exit      — выйти
-        </code></pre>
-        
-        <hr>
-        <h3>🎛️ Запуск с шумом (имитация реального процессора)</h3>
-        <pre><code>BeethovenQuantumMachine.exe --noise 0.1</code></pre>
-        <p style="font-size: 0.9rem;">* Любые вопросы и идеи улучшений — добро пожаловать в <a href="https://github.com/pavelaknyazev2013-jpg/BeethovenQuantumMachine/issues">Issues репозитория</a>.</p>
+<div class="container">
+    <h1>🎵 Beethoven Quantum Machine</h1>
+    <div class="subhead">
+        Квантовый эмулятор 8 кубитов <span class="badge">v1.5</span>
     </div>
+
+    <div class="download-area">
+        <!-- Кнопка ведёт на страницу релиза GitHub (работает всегда!) -->
+        <a href="https://github.com/pavelaknyazev2013-jpg/BeethovenQuantumMachine/releases/tag/v1.5" 
+           class="download-btn" 
+           target="_blank" 
+           rel="noopener noreferrer">
+           ⬇️ Скачать для Windows
+        </a>
+        <p style="margin-top: 1rem; font-size: 0.85rem; color: #4b5563;">
+            🔹 Вы перейдёте на страницу релиза → в разделе <strong>Assets</strong> выберите файл<br>
+            <code>BeethovenQuantumMachineSetup.exe</code> или <code>ZIP-архив</code>. Скачивание начнётся сразу.
+        </p>
+    </div>
+
+    <div class="info-note">
+        💡 <strong>Не открывается скачанный файл?</strong><br>
+        Если Windows показывает предупреждение — нажмите «Подробнее» → «Выполнить в любом случае»<br>
+        Или: правой кнопкой по файлу → «Свойства» → внизу «Разблокировать» → ОК → запустить снова.
+    </div>
+
+    <hr>
+
+    <h2>📋 Быстрая справка</h2>
+    <pre><code>
+h        — вентиль Адамара: создаёт суперпозицию
+x        — вентиль NOT: переворачивает кубит
+z        — вентиль Паули Z: меняет фазу |1⟩ на -|1⟩
+cnot     — управляемое NOT (запутывание кубитов)
+measure  — измерить все 8 кубитов
+reset    — сбросить состояние в |00000000>
+cls      — очистить экран консоли
+exit     — выйти из программы
+    </code></pre>
+
+    <h3>🎛️ Запуск с шумом (реалистичный режим)</h3>
+    <pre><code>BeethovenQuantumMachine.exe --noise 0.1</code></pre>
+    <p>— вероятность ошибки 10% (битовые флипы, шум чтения). Имитация реального квантового процессора.</p>
+
+    <hr>
+
+    <p style="font-size: 0.9rem;">
+        📦 <strong>Альтернативная установка:</strong> если .exe не запускается, скачайте ZIP-архив из того же релиза,<br>
+        распакуйте и запустите <code>BeethovenQuantumMachineSetup.exe</code>.<br>
+        🐞 Сообщить об ошибке или предложить идею → <a href="https://github.com/pavelaknyazev2013-jpg/BeethovenQuantumMachine/issues">Issues на GitHub</a>
+    </p>
+
+    <footer>
+        Beethoven Quantum Machine — Open Source проект. Доступен на GitHub.
+    </footer>
+</div>
 </body>
 </html>
