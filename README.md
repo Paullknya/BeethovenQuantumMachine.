@@ -1,1 +1,3 @@
 this project is an emulator of an 8-qubit quantum computer. It has 4 quantum gates.(h - creates a superposition, x - flips a qubit, z - changes the sign of a qubit, cnot - creates quantum entanglement)
+
+#quantum
